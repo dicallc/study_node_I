@@ -1,0 +1,35 @@
+### 1.端口占用：
+npm install killport2 -g
+killport 3000
+
+### 2.热修复
+
+npm install -g nodemon
+
+
+### 3.如何调试
+
+https://blog.csdn.net/yiifaa/article/details/77676393
+
+### 4.body-parse:
+
+https://www.jianshu.com/p/ea0122ad1ac0
+
+### 5.解析formdata 中间件
+
+npm install connect-multiparty --save
+
+填坑：
+
+[node.js依赖express解析post请求四种数据格式（）](https://www.jianshu.com/p/606802e40fd5)
+
+调试：
+http://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html
+
+### 6.使用bower安装依赖
+
+bower install --save angular
+
+### 7.node解决跨越
+
+https://www.tuicool.com/articles/vYBR3y

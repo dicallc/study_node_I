@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/dist/css/bootstrap.css">
+</head>
+<body >
+
+<div id="webapp" class="container" >
+    <h2>News</h2>
+    <button class="btn btn-primary" v-on:click="createNews()">Create News</button>
+    <div class="row" v-for="item in list">
+        <div class="col-sm-2">
+            <small v-on:click="formatTime(item.createTime)"></small>
+        </div>
+        <div class="col-sm-10">
+            <a href="javascript: void(0)" v-on:click="openNewsDetail(item._id)">{{item.title}}</a>
+        </div>
+    </div>
+ <div class="modal fade" id="modal-detail">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 >{{current.title}}</h1>
+                    <span v-on:click="formatTime(current.createTime)"></span>
+                </div>
+                <div class="modal-body">
+                    <div >{{current.content}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-editor">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>News Editor</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" v-model="news.title" placeholder="News Title" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Content</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" v-model="news.content" placeholder="News Content" cols=50 rows=10></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" v-on:click="save()">Save</button>
+                                <span class="help-inline text-danger">{{editorMessage}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../lib/vue/dist/vue.js"></script>
+<script type="text/javascript" src="../lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../lib/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../lib/moment/moment.js"></script>
+<script type="text/javascript" src="services/news.client.service.js"></script>
+<script type="text/javascript" src="controllers/news.client.controller.js"></script>
+</body>
+
+</html>
